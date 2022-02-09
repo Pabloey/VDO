@@ -31,3 +31,12 @@ class Playlist(models.Model):
     def __str__(self):
         return self.title
 
+
+class Comments(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="playlists")
+    description = models.CharField(max_length=200)
+    rating = models.IntegerField(default=5)
+
+    def __str__(self):
+        return self.description
