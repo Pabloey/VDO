@@ -8,11 +8,6 @@ class UserSerializer(serializers.ModelSerializer):
         many=True,
         read_only=True
     )
-    comments = serializers.HyperlinkedRelatedField(
-        view_name="comment_detail",
-        many=True,
-        read_only=True
-    )
     user_url = serializers.ModelSerializer.serializer_url_field(
         view_name="user_detail"
     )
@@ -24,14 +19,14 @@ class UserSerializer(serializers.ModelSerializer):
 
 class UploadedVideoSerializer(serializers.HyperlinkedModelSerializer):
 
-    user = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(),
-        source=''
+    user = serializers.HyperlinkedRelatedField(
+        view_name="user_detail",
+        read_only=True
     )
 
     upload_id = serializers.PrimaryKeyRelatedField(
         queryset=UploadedVideo.objects.all(),
-        source='upload_video'
+        source='user'
     )
 
     class Meta:
