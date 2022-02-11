@@ -8,6 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
         many=True,
         read_only=True
     )
+
     user_url = serializers.ModelSerializer.serializer_url_field(
         view_name="user_detail"
     )
@@ -33,3 +34,20 @@ class UploadedVideoSerializer(serializers.HyperlinkedModelSerializer):
         model = UploadedVideo
         fields = ('id', 'title', 'description', 'date_time',
                   'video_url', 'user', 'upload_id')
+
+
+class PlaylistSerializer(serializers.HyperlinkedModelSerializer):
+
+    user = serializers.HyperlinkedRelatedField(
+        view_name="user_detail",
+        read_only=True
+    )
+
+    playlist_id = serializers.PrimaryKeyRelatedField(
+        queryset=Playlist.objects.all(),
+        source='user'
+    )
+
+    class Meta:
+        model = Playlist
+        fields = ('id', 'playlist_title', 'user', 'playlist_id')

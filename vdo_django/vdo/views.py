@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .serializers import UserSerializer, UploadedVideoSerializer
-from .models import User, UploadedVideo
+from .serializers import UserSerializer, UploadedVideoSerializer, PlaylistSerializer
+from .models import User, UploadedVideo, Playlist, PlaylistVideo, Comment
 
 # Create your views here.
 
@@ -23,3 +23,13 @@ class UploadedVideoList(generics.ListCreateAPIView):
 class UploadedVideoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = UploadedVideo.objects.all()
     serializer_class = UploadedVideoSerializer
+
+
+class PlaylistList(generics.ListCreateAPIView):
+    queryset = Playlist.objects.all()
+    serializer_class = PlaylistSerializer
+
+
+class PlaylistDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Playlist.objects.all()
+    serializer_class = PlaylistSerializer

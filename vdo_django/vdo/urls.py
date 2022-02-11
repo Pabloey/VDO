@@ -8,4 +8,6 @@ urlpatterns = [
     path('uploaded/', views.UploadedVideoList.as_view(), name='video_list'),
     path('uploaded/<int:pk>', views.UploadedVideoDetail.as_view(),
          name='video_detail'),
+    path('playlist/', views.PlaylistList.as_view(), name='playlist_list'),
+    path('playlist/<int:pk>', views.PlaylistDetail.as_view(), name='playlist_detail'),
 ]
