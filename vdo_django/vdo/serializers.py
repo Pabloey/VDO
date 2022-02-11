@@ -3,7 +3,6 @@ from .models import User, UploadedVideo, Playlist, Comment, PlaylistVideo
 
 
 class UploadedVideoSerializer(serializers.ModelSerializer):
-
     user = serializers.HyperlinkedRelatedField(
         view_name="user_detail",
         read_only=True
@@ -21,7 +20,6 @@ class UploadedVideoSerializer(serializers.ModelSerializer):
 
 
 class PlaylistSerializer(serializers.HyperlinkedModelSerializer):
-
     user = serializers.HyperlinkedRelatedField(
         view_name="user_detail",
         read_only=True
@@ -37,9 +35,39 @@ class PlaylistSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'playlist_title', 'user', 'user_id')
 
 
-class UserSerializer(serializers.ModelSerializer):
+class CommentSerializer(serializers.ModelSerializer):
+    user = serializers.HyperlinkedRelatedField(
+        view_name="user_detail",
+        read_only=True
+    )
 
+    user_id = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(),
+        source='user'
+    )
+
+    video = serializers.HyperlinkedRelatedField(
+        view_name="video_detail",
+        read_only=True
+    )
+
+    video_id = serializers.PrimaryKeyRelatedField(
+        queryset=UploadedVideoSerializer.objects.all(),
+        source='video'
+    )
+
+    class Meta:
+        model = Comment
+        fields = ('id', 'description', 'user', 'user_id', 'video', 'video_id')
+
+
+class UserSerializer(serializers.ModelSerializer):
     videos = UploadedVideoSerializer(
+        many=True,
+        read_only=True
+    )
+
+    comments = CommentSerializer(
         many=True,
         read_only=True
     )
