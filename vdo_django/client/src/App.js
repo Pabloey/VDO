@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react'
 import Button from '@mui/material/Button'
+import NavBar from './component/NavBar'
 import ReactPlayer from 'react-player'
 import LoggedIn from './component/LoggedIn'
 import LoggedOut from './component/LoggedOut'
@@ -14,18 +15,14 @@ function App () {
     else setAuth(false)
   }
 
+  const pages = ['page1', 'page2', 'page3', 'page4', 'page5']
+
 
   return (
     <div className="App">
-      <p>hi</p>
+      <NavBar/>
       <Button onClick={() => authButton()} variant="contained">Testing</Button>
-
       {auth ? <LoggedIn /> : <LoggedOut />}
-      <a href="youtube.com" ><div>
-        <ReactPlayer controls='false' url='https://vimeo.com/76979871' playing="true" />
-      </div>
-      </a>
-      <ReactPlayer controls='false' url='https://vimeo.com/76979871' playing="false" />
     </div>
   );
 }
