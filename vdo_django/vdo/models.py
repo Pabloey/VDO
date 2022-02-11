@@ -41,7 +41,6 @@ class PlaylistVideo(models.Model):
     )
 
 
-
 class Comment(models.Model):
     video = models.ForeignKey(
         UploadedVideo, on_delete=models.CASCADE, related_name="comments", null=True, blank=True)
