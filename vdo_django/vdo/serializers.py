@@ -74,11 +74,12 @@ class UserSerializer(serializers.ModelSerializer):
         view_name="user_detail"
     )
 
-    comment_user = CommentSerializer(
-      many=True,
-      read_only=True
+    comment_list = CommentSerializer(
+        many=True,
+        read_only=True
     )
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'videos', 'user_url', 'videos', 'comment_user')
+        fields = ('id', 'username', 'password', 'videos',
+                  'user_url', 'videos', 'comment_list')
