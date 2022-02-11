@@ -65,7 +65,7 @@ class PlaylistSerializer(serializers.HyperlinkedModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
 
-    videos = UploadedVideoSerializer(
+    video_list = UploadedVideoSerializer(
         many=True,
         read_only=True
     )
@@ -81,5 +81,5 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'videos',
-                  'user_url', 'videos', 'comment_list')
+        fields = ('id', 'username', 'password',
+                  'user_url', 'video_list', 'comment_list')
