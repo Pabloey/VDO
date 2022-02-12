@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react'
 import Button from '@mui/material/Button'
-import NavBar from './component/NavBar'
+import Drawer from './component/Drawer'
 import ReactPlayer from 'react-player'
 import LoggedIn from './component/LoggedIn'
 import LoggedOut from './component/LoggedOut'
@@ -20,7 +20,7 @@ function App () {
 
   return (
     <div className="App">
-      <NavBar/>
+      <Drawer/>
       <Button onClick={() => authButton()} variant="contained">Testing</Button>
       {auth ? <LoggedIn /> : <LoggedOut />}
     </div>
