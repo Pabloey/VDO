@@ -1,12 +1,15 @@
 import React from "react";
-import SignIn from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 export default function LogIn() {
   return (
     <div>
-      <SignIn/>
-      <SignUp/>
+      <h1>Sign In</h1>
+      <SignIn />
+      or
+      <h1>Sign Up</h1>
+      <SignUp />
     </div>
   );
 }
