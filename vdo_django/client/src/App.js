@@ -23,6 +23,47 @@ function App () {
       <Drawer/>
       <Button onClick={() => authButton()} variant="contained">Testing</Button>
       {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Button onClick={() => authButton()} variant="contained">Testing</Button>
+      {auth ? <LoggedIn /> : <LoggedOut />}
+
     </div>
   );
 }
