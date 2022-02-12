@@ -2,10 +2,11 @@ import React from "react";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 
-export default function LoggedIn() {
+export default function LogIn() {
   return (
     <div>
-      <SignIn />
+      <SignIn/>
+      <SignUp/>
     </div>
   );
 }

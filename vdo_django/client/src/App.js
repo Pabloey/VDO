@@ -3,8 +3,9 @@ import { useState } from 'react'
 import Button from '@mui/material/Button'
 import Drawer from './component/Drawer'
 import ReactPlayer from 'react-player'
-import LoggedIn from './component/LoggedIn'
+import LogIn from './component/LogIn'
 import LoggedOut from './component/LoggedOut'
+import { Route, Switch } from 'react-router-dom'
 
 function App () {
 
@@ -19,8 +20,13 @@ function App () {
   return (
     <div className="App">
       <Drawer />
+      <Switch>
+        {/* <Route exact path="/" component={Home}></Route> */}
+        <Route exact path="/login" component={LogIn}></Route>
+        {/* <Route exact path="/" component={Home}></Route> */}
+      </Switch>
       <Button onClick={() => authButton()} variant="contained">Testing</Button>
-      {auth ? <LoggedIn /> : <LoggedOut />}
+      {/* {auth ? <LogIn /> : <LoggedOut />} */}
     </div>
   );
 }
