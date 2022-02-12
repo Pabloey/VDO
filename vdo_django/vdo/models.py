@@ -13,7 +13,7 @@ class User(models.Model):
 
 class Playlist(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="playlists")
+        User, on_delete=models.CASCADE, related_name="playlist_list")
 
     playlist_title = models.CharField(max_length=100)
 
@@ -23,7 +23,7 @@ class Playlist(models.Model):
 
 class UploadedVideo(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="videos")
+        User, on_delete=models.CASCADE, related_name="video_list")
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
     date_time = models.DateTimeField(auto_now_add=True)
@@ -45,7 +45,7 @@ class Comment(models.Model):
     video = models.ForeignKey(
         UploadedVideo, on_delete=models.CASCADE, related_name="comments", null=True, blank=True)
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="comment_user"
+        User, on_delete=models.CASCADE, related_name="comment_list"
     )
     description = models.CharField(max_length=200)
 

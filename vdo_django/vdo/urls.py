@@ -11,5 +11,5 @@ urlpatterns = [
     path('playlist/', views.PlaylistList.as_view(), name='playlist_list'),
     path('playlist/<int:pk>', views.PlaylistDetail.as_view(), name='playlist_detail'),
     path('comments/', views.CommentList.as_view(), name='comment_list'),
-    path('comments/<int:pk>', views.CommentDetail.as_view(), name='comment_detail')
+    path('comments/<int:pk>', views.CommentDetail.as_view(), name="comment_detail")
 ]
