@@ -3,10 +3,12 @@ from .models import User, UploadedVideo, Playlist, Comment, PlaylistVideo
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    user = serializers.HyperlinkedRelatedField(
-        view_name="user_detail",
-        read_only=True
-    )
+    # user = serializers.HyperlinkedRelatedField(
+    #     view_name="user_detail",
+    #     read_only=True
+    # )
+
+    user = serializers.StringRelatedField()
 
     user_id = serializers.PrimaryKeyRelatedField(
         queryset=User.objects.all(),
@@ -30,10 +32,8 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class UploadedVideoSerializer(serializers.ModelSerializer):
 
-    user = serializers.HyperlinkedRelatedField(
-        view_name="user_detail",
-        read_only=True
-    )
+    user = serializers.StringRelatedField()
+
     comments = CommentSerializer(
         many=True,
         read_only=True

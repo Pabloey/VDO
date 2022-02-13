@@ -17,17 +17,17 @@ export default function Drawer() {
       <SwipeableDrawer anchor="left" open={open} onClose={() => setOpen(false)} onOpen={() => {}}>
         <div style={{ width: "200px" }}>
           <Box textAlign="center" p={2}>
-            Menu Items
+            Logo
           </Box>
           <List>
+            <ListItem button onClick={() => {}}>
+              <ListItemText primary="Home" />
+            </ListItem>
             <ListItem button onClick={() => {}}>
               <ListItemText primary="User" />
             </ListItem>
             <ListItem button onClick={() => {}}>
-              <ListItemText primary="Videos" />
-            </ListItem>
-            <ListItem button onClick={() => {}}>
-              <ListItemText primary="Comments" />
+              <ListItemText primary="Upload" />
             </ListItem>
           </List>
         </div>

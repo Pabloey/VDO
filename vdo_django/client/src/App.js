@@ -2,16 +2,17 @@ import './App.css';
 import { useState } from 'react'
 import Button from '@mui/material/Button'
 import Drawer from './component/Drawer'
-import ReactPlayer from 'react-player'
-import LoggedIn from './component/LoggedIn'
-import LoggedOut from './component/LoggedOut'
+import LogIn from './pages/LogIn'
+import Home from './pages/Home'
+import VideoPage from './pages/VideoPage'
+import { Route, Switch } from 'react-router-dom'
 
 function App () {
-
   const [auth, setAuth] = useState(false)
-
   const authButton = () => {
-    if (!auth) setAuth(true)
+    if (!auth) {
+      setAuth(true)
+    }
     else setAuth(false)
   }
 
@@ -19,8 +20,12 @@ function App () {
   return (
     <div className="App">
       <Drawer />
-      <Button onClick={() => authButton()} variant="contained">Testing</Button>
-      {auth ? <LoggedIn /> : <LoggedOut />}
+      <Switch>
+        <Route exact path="/" component={(props) => <Home {...props} />}></Route>
+        <Route exact path="/login" component={(props) => <LogIn {...props} authButton={authButton} />}></Route>
+        <Route exact path="/videos/:id" component={(props) => <VideoPage {...props} />}></Route>
+      </Switch>
+      {/* {auth ? <LogIn /> : <LoggedOut />} */}
     </div>
   );
 }
