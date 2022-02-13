@@ -2,4 +2,4 @@
 //   ? `${window.location.origin}/api`
 //   : `http://localhost:8000/api`;
 
-  export const GLOBAL_BASE_URL = `http://localhost:8000/`
+export const GLOBAL_BASE_URL = `http://localhost:8000/`

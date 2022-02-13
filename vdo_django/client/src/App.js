@@ -4,7 +4,6 @@ import Button from '@mui/material/Button'
 import Drawer from './component/Drawer'
 import ReactPlayer from 'react-player'
 import LogIn from './component/LogIn'
-import LoggedOut from './pages/LoggedOut'
 import { Route, Switch } from 'react-router-dom'
 
 function App () {

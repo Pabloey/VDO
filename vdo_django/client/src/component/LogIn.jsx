@@ -7,7 +7,6 @@ export default function LogIn() {
     <div>
       <h1>Sign In</h1>
       <SignIn />
-      or
       <h1>Sign Up</h1>
       <SignUp />
     </div>
