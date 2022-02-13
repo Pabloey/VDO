@@ -6,6 +6,7 @@ import LogIn from './pages/LogIn'
 import Home from './pages/Home'
 import VideoPage from './pages/VideoPage'
 import Upload from './pages/UploadVideo'
+import User from './pages/User'
 import { Route, Switch } from 'react-router-dom'
 
 function App () {
@@ -20,11 +21,11 @@ function App () {
 
   return (
     <div className="App">
-      {/* {(props) => <Drawer {...props} />} */}
       <Drawer />
       <Switch>
         <Route exact path="/" component={(props) => <Home {...props} />}></Route>
         <Route exact path="/login" component={(props) => <LogIn {...props} authButton={authButton} />}></Route>
+        <Route exact path="/user" component={(props) => <User {...props} />}></Route>
         <Route exact path="/videos/:id" component={(props) => <VideoPage {...props} />}></Route>
         <Route exact path="/upload" component={(props) => <Upload {...props} />}> </Route>
       </Switch>
