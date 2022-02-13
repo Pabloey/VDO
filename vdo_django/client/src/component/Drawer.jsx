@@ -36,7 +36,9 @@ export default function Drawer() {
                 <ListItemText primary="User" onClick={() => setOpen(false)} />
               </ListItem>
               <ListItem button onClick={() => {}}>
+                <Link to="/upload">
                 <ListItemText primary="Upload" onClick={() => setOpen(false)} />
+                </Link>
               </ListItem>
               <ListItem
                 button
