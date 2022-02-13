@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Button from '@mui/material/Button'
 import Drawer from './component/Drawer'
 import ReactPlayer from 'react-player'
-import LogIn from './component/LogIn'
+import LogIn from './pages/LogIn'
 import Home from './pages/Home'
 import { Route, Switch } from 'react-router-dom'
 
@@ -21,8 +21,8 @@ function App () {
     <div className="App">
       <Drawer />
       <Switch>
-        <Route exact path="/" component={Home}></Route>
-        <Route exact path="/login" component={(props) => <LogIn {...props} setAuth={setAuth} />}></Route>
+        <Route exact path="/" component={(props) => <Home {...props} />}></Route>
+        <Route exact path="/login" component={(props) => <LogIn {...props} authButton={authButton} />}></Route>
         {/* <Route exact path="/" component={Home}></Route> */}
       </Switch>
       {/* <Button onClick={() => authButton()} variant="contained">Testing</Button> */}

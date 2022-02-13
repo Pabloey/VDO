@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 import { FindUser } from "../services/routes";
 
-export default function SignIn() {
+export default function SignIn(props) {
   const [account, setAccount] = useState({
     username: "",
     password: "",
@@ -20,8 +20,12 @@ export default function SignIn() {
     const res = await FindUser(account.username);
     await setCheckAcc(res);
     if (account.username === checkAcc.username && account.password === checkAcc.password) {
-      alert("Login successful");
-    } else alert("Wrong password or username");
+      e.preventDefault();
+      localStorage.setItem("user", JSON.stringify(checkAcc));
+      console.log(localStorage.getItem("user"));
+      props.history.push('/')
+      // alert("Login successful"); //Add toast here Snackbar/Alert MUI
+    } else alert("Wrong password or username"); //Add toast here Snackbar/Alert MUI
   };
 
   return (
