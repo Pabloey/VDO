@@ -9,8 +9,7 @@ export default function SignIn() {
     password: "",
   });
 
-  const [checkAcc, setCheckAcc] = useState({
-  })
+  const [checkAcc, setCheckAcc] = useState({});
 
   const handleChange = (e) => {
     setAccount({ ...account, [e.target.name]: e.target.value });
@@ -18,13 +17,11 @@ export default function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await FindUser(account.username)
-    await setCheckAcc(res)
-    console.log(checkAcc)
+    const res = await FindUser(account.username);
+    await setCheckAcc(res);
     if (account.username === checkAcc.username && account.password === checkAcc.password) {
-      alert("Login successful")
-    }
-    else alert("Wrong password or username")
+      alert("Login successful");
+    } else alert("Wrong password or username");
   };
 
   return (

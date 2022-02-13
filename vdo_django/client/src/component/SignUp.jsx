@@ -18,10 +18,8 @@ export default function SignUp() {
     e.preventDefault();
     await CreateUser({ username: account.username, password: account.password });
     if (account.password === account.confirmPassword) {
+      setAccount({ username: "", password: "", confirmPassword: "" });
       alert("Thanks for signing up, now you can login"); //Add toast here Snackbar/Alert MUI
-      account.username = "";
-      account.password = "";
-      account.confirmPassword = "";
     } else alert("Password's don't match, try again"); //Add toast here Snackbar/Alert MUI
   };
 
