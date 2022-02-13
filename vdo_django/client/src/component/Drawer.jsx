@@ -33,10 +33,10 @@ export default function Drawer() {
                 </Link>
               </ListItem>
               <ListItem button onClick={() => {}}>
-                <ListItemText primary="User" />
+                <ListItemText primary="User" onClick={() => setOpen(false)} />
               </ListItem>
               <ListItem button onClick={() => {}}>
-                <ListItemText primary="Upload" />
+                <ListItemText primary="Upload" onClick={() => setOpen(false)} />
               </ListItem>
               <ListItem
                 button
@@ -45,14 +45,14 @@ export default function Drawer() {
                 }}
               >
                 <Link to="/login">
-                  <ListItemText primary="Sign Out" />
+                  <ListItemText primary="Sign Out" onClick={() => setOpen(false)} />
                 </Link>
               </ListItem>
             </List>
           ) : (
             <List>
               <Link to="/login">
-                <ListItemText primary="Sign Up / Sign In" />
+                <ListItemText primary="Sign Up / Sign In" onClick={() => setOpen(false)} />
               </Link>
             </List>
           )}
