@@ -14,3 +14,8 @@ export const GetVideos = async () => {
   const res = await Client.get(`/uploaded/`)
   return res.data
 }
+
+export const SpecVideo = async (id) => {
+  const res = await Client.get(`/uploaded/${id}`)
+  return res.data
+}
