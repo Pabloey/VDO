@@ -1,6 +1,10 @@
+import ReactPlayer from "react-player";
 
-export default function VideoPage() {
+export default function VideoPage(props) {
   return (
-    <div>VideoPlayer</div>
-  )
+    <div>
+      <ReactPlayer url={``} />
+      <p></p>
+    </div>
+  );
 }

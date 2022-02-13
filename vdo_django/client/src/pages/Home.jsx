@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div>
       {videos.map((e, i) => (
-        <Link style={{ textDecoration: "none", color: 'black'}} to={`/videos/${e.id}`}>
+        <Link style={{ textDecoration: "none", color: "black" }} to={`/videos/${e.id}`}>
           <VideoList key={i} e={e} />
         </Link>
       ))}

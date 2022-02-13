@@ -23,7 +23,7 @@ function App () {
       <Switch>
         <Route exact path="/" component={(props) => <Home {...props} />}></Route>
         <Route exact path="/login" component={(props) => <LogIn {...props} authButton={authButton} />}></Route>
-        <Route exact path="/video/:id" component={(props) => <VideoPage/>}></Route>
+        <Route exact path="/videos/:id" component={(props) => <VideoPage {...props} />}></Route>
       </Switch>
       {/* {auth ? <LogIn /> : <LoggedOut />} */}
     </div>
