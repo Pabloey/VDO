@@ -24,6 +24,7 @@ export default function SignIn(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(account)
     const res = await FindUser(account.username);
     await checkUser(res);
   };
@@ -33,6 +34,8 @@ export default function SignIn(props) {
       <form onSubmit={handleSubmit}>
         <TextField id="outlined-basic" label="Username" variant="outlined" name="username" value={account.username} onChange={handleChange} />
         <br />
+        <br />
+
         <TextField
           id="outlined-basic"
           type="password"
@@ -42,6 +45,7 @@ export default function SignIn(props) {
           value={account.password}
           onChange={handleChange}
         />
+        <br />
         <br />
         <Button type="submit" variant="contained">
           Sign In
