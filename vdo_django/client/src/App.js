@@ -19,13 +19,14 @@ function App () {
 
   return (
     <div className="App">
-      <Drawer />
+      {/* {(props) => <Drawer {...props} />} */}
+      <Drawer/>
       <Switch>
         <Route exact path="/" component={(props) => <Home {...props} />}></Route>
         <Route exact path="/login" component={(props) => <LogIn {...props} authButton={authButton} />}></Route>
         <Route exact path="/videos/:id" component={(props) => <VideoPage {...props} />}></Route>
+        <Route exacth path="/upload"></Route>
       </Switch>
-      {/* {auth ? <LogIn /> : <LoggedOut />} */}
     </div>
   );
 }

@@ -9,15 +9,14 @@ export default function SignIn(props) {
     password: "",
   });
 
-  const [checkAcc, setCheckAcc] = useState({});
-
   const handleChange = (e) => {
     setAccount({ ...account, [e.target.name]: e.target.value });
   };
 
-  const checkUser = async (e) => {
-    if (account.username === checkAcc.username && account.password === checkAcc.password) {
-      localStorage.setItem("user", JSON.stringify(checkAcc));
+  const checkUser = async (res) => {
+    if (account.username === res.username && account.password === res.password) {
+      localStorage.setItem("user", JSON.stringify(res));
+      console.log();
       props.authButton();
       props.history.push("/");
       // alert("Login successful"); //Add toast here Snackbar/Alert MUI
@@ -27,14 +26,14 @@ export default function SignIn(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await FindUser(account.username);
-    setCheckAcc(res);
-    await checkUser();
+    await checkUser(res);
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <TextField id="outlined-basic" label="Username" variant="outlined" name="username" value={account.username} onChange={handleChange} />
+        <br />
         <br />
         <TextField
           id="outlined-basic"
@@ -45,6 +44,7 @@ export default function SignIn(props) {
           value={account.password}
           onChange={handleChange}
         />
+        <br />
         <br />
         <Button type="submit" variant="contained">
           Sign In

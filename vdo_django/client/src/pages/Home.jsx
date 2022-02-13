@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { GetVideos } from "../services/routes";
 import VideoList from "../component/VideoList";
 
-export default function Home() {
+export default function Home(props) {
   const [videos, setVideos] = useState([]);
   useEffect(() => {
     const getVideos = async () => {
@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <div>
       {videos.map((e, i) => (
-        <Link style={{ textDecoration: "none", color: "black" }} to={`/videos/${e.id}`}>
-          <VideoList key={i} e={e} />
+        <Link style={{ textDecoration: "none", color: "black" }} to={`/videos/${e.id}`} key={i}>
+          <VideoList  key={i} e={e} />
         </Link>
       ))}
     </div>
