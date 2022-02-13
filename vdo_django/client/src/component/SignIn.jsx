@@ -15,17 +15,20 @@ export default function SignIn(props) {
     setAccount({ ...account, [e.target.name]: e.target.value });
   };
 
+  const checkUser = async (e) => {
+    if (account.username === checkAcc.username && account.password === checkAcc.password) {
+      localStorage.setItem("user", JSON.stringify(checkAcc));
+      props.authButton();
+      props.history.push("/");
+      // alert("Login successful"); //Add toast here Snackbar/Alert MUI
+    } else alert("Wrong password or username"); //Add toast here Snackbar/Alert MUI
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await FindUser(account.username);
-    await setCheckAcc(res);
-    if (account.username === checkAcc.username && account.password === checkAcc.password) {
-      e.preventDefault();
-      localStorage.setItem("user", JSON.stringify(checkAcc));
-      console.log(localStorage.getItem("user"));
-      props.history.push('/')
-      // alert("Login successful"); //Add toast here Snackbar/Alert MUI
-    } else alert("Wrong password or username"); //Add toast here Snackbar/Alert MUI
+    setCheckAcc(res);
+    await checkUser();
   };
 
   return (

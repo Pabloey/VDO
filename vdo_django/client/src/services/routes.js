@@ -9,3 +9,8 @@ export const FindUser = async (user) => {
   const res = await Client.get(`/username/${user}`)
   return res.data
 }
+
+export const GetVideos = async () => {
+  const res = await Client.get(`/uploaded/`)
+  return res.data
+}
