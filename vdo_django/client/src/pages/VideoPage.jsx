@@ -1,6 +1,6 @@
 import ReactPlayer from "react-player";
 import TextField from "@mui/material/TextField";
-import Comment from '../component/Comment'
+import Comment from '../component/PostComment'
 import { useEffect, useState } from "react";
 import { SpecVideo } from "../services/routes";
 

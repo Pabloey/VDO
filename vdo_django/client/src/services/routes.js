@@ -19,3 +19,8 @@ export const SpecVideo = async (id) => {
   const res = await Client.get(`/uploaded/${id}`)
   return res.data
 }
+
+export const SubmitComment = async (comment) => {
+  const res = await Client.post(`/comment/`, comment)
+  return res.data
+}
