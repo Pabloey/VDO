@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { SpecVideo } from "../services/routes";
+import { SpecVideo, SubmitComment } from "../services/routes";
 
 export default function PostComment(props) {
   const [comment, setComment] = useState({
@@ -9,9 +9,11 @@ export default function PostComment(props) {
     video_id: props.match.params.id,
     description: "",
   });
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(comment);
+    await SubmitComment(comment);
+    const res = await SpecVideo(props.match.params.id);
+    props.setVideoComments((res.comments).reverse());
   };
 
   const handleChange = (e) => {
