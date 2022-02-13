@@ -1,18 +1,26 @@
 import ReactPlayer from "react-player";
+import TextField from "@mui/material/TextField";
+import Comment from '../component/Comment'
 import { useEffect, useState } from "react";
 import { SpecVideo } from "../services/routes";
 
 export default function VideoPage(props) {
   const [videos, setVideos] = useState({});
+  const [videoComments, setVideoComments] = useState([]);
+  const [user, setUser] = useState({})
+
 
   useEffect(() => {
     const getVideos = async () => {
       const res = await SpecVideo(props.match.params.id);
       setVideos(res);
+      setVideoComments(res.comments);
+      setUser(JSON.parse(localStorage.getItem("user")) )
     };
     getVideos();
   }, []);
 
+  console.log(user)
   return (
     <div>
       <ReactPlayer url={`${videos.video_url}`} />
@@ -21,8 +29,9 @@ export default function VideoPage(props) {
       <h5>{videos.description}</h5>
       <div>
         <h3>Comments</h3>
-        {videos.comments.map((e, i) => (
-          <div>
+        <Comment {...props} user={user}/>
+        {videoComments.map((e, i) => (
+          <div key={i}>
             <h5>{e.user}</h5>
             <p>{e.description}</p>
           </div>
