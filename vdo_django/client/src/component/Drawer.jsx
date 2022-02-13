@@ -10,6 +10,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 export default function Drawer() {
   const [open, setOpen] = useState(false);
+
+  const signOut = () => {
+    localStorage.clear();
+  };
+
   return (
     <div style={{ display: "grid", justifyContent: "start", paddingLeft: "1%" }}>
       <IconButton color="inherit" onClick={() => setOpen(true)}>
@@ -20,25 +25,37 @@ export default function Drawer() {
           <Box textAlign="center" p={2}>
             Logo
           </Box>
-          <List>
-            <ListItem button onClick={() => {}}>
-              {localStorage.getItem("user") ? (
+          {localStorage.getItem("user") ? (
+            <List>
+              <ListItem button onClick={() => {}}>
                 <Link to="/">
                   <ListItemText primary="Home" />
                 </Link>
-              ) : (
+              </ListItem>
+              <ListItem button onClick={() => {}}>
+                <ListItemText primary="User" />
+              </ListItem>
+              <ListItem button onClick={() => {}}>
+                <ListItemText primary="Upload" />
+              </ListItem>
+              <ListItem
+                button
+                onClick={() => {
+                  signOut();
+                }}
+              >
                 <Link to="/login">
-                  <ListItemText primary="Sign Up / Sign In" />
+                  <ListItemText primary="Sign Out" />
                 </Link>
-              )}
-            </ListItem>
-            <ListItem button onClick={() => {}}>
-              <ListItemText primary="User" />
-            </ListItem>
-            <ListItem button onClick={() => {}}>
-              <ListItemText primary="Upload" />
-            </ListItem>
-          </List>
+              </ListItem>
+            </List>
+          ) : (
+            <List>
+              <Link to="/login">
+                <ListItemText primary="Sign Up / Sign In" />
+              </Link>
+            </List>
+          )}
         </div>
       </SwipeableDrawer>
     </div>

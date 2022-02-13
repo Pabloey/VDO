@@ -25,6 +25,7 @@ function App () {
         <Route exact path="/" component={(props) => <Home {...props} />}></Route>
         <Route exact path="/login" component={(props) => <LogIn {...props} authButton={authButton} />}></Route>
         <Route exact path="/videos/:id" component={(props) => <VideoPage {...props} />}></Route>
+        <Route exacth path="/upload"></Route>
       </Switch>
     </div>
   );
