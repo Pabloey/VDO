@@ -4,6 +4,7 @@ import Button from '@mui/material/Button'
 import Drawer from './component/Drawer'
 import LogIn from './pages/LogIn'
 import Home from './pages/Home'
+import VideoPage from './pages/VideoPage'
 import { Route, Switch } from 'react-router-dom'
 
 function App () {
@@ -22,6 +23,7 @@ function App () {
       <Switch>
         <Route exact path="/" component={(props) => <Home {...props} />}></Route>
         <Route exact path="/login" component={(props) => <LogIn {...props} authButton={authButton} />}></Route>
+        <Route exact path="/video/:id" component={(props) => <VideoPage/>}></Route>
       </Switch>
       {/* {auth ? <LogIn /> : <LoggedOut />} */}
     </div>

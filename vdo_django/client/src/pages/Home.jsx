@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import ReactPlayer from "react-player";
+import { Link } from "react-router-dom";
 import { GetVideos } from "../services/routes";
+import VideoList from "../component/VideoList";
 
 export default function Home() {
   const [videos, setVideos] = useState([]);
@@ -15,11 +16,9 @@ export default function Home() {
   return (
     <div>
       {videos.map((e, i) => (
-        <div key={i}>
-          <h4>{e.title}</h4>
-          <ReactPlayer width="160px" height="90px" url={e.video_url} />
-          <h6>{e.user}</h6>
-        </div>
+        <Link style={{ textDecoration: "none", color: 'black'}} to={`/videos/${e.id}`}>
+          <VideoList key={i} e={e} />
+        </Link>
       ))}
     </div>
   );
