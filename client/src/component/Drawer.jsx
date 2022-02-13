@@ -13,6 +13,7 @@ export default function Drawer() {
 
   const signOut = () => {
     localStorage.clear();
+    setOpen(false);
   };
 
   return (
@@ -27,34 +28,38 @@ export default function Drawer() {
           </Box>
           {localStorage.getItem("user") ? (
             <List>
-              <ListItem button onClick={() => {}}>
-                <Link to="/">
+              <Link to="/">
+                <ListItem button onClick={() => {}}>
                   <ListItemText primary="Home" />
-                </Link>
-              </ListItem>
-              <ListItem button onClick={() => {}}>
-                <ListItemText primary="User" onClick={() => setOpen(false)} />
-              </ListItem>
-              <ListItem button onClick={() => {}}>
-                <Link to="/upload">
-                <ListItemText primary="Upload" onClick={() => setOpen(false)} />
-                </Link>
-              </ListItem>
-              <ListItem
-                button
-                onClick={() => {
-                  signOut();
-                }}
-              >
-                <Link to="/login">
-                  <ListItemText primary="Sign Out" onClick={() => setOpen(false)} />
-                </Link>
-              </ListItem>
+                </ListItem>
+              </Link>
+              <Link to="/user">
+                <ListItem button onClick={() => setOpen(false)}>
+                  <ListItemText primary="User" />
+                </ListItem>
+              </Link>
+              <Link to="/upload">
+                <ListItem button onClick={() => setOpen(false)}>
+                  <ListItemText primary="Upload" />
+                </ListItem>
+              </Link>
+              <Link to="/login">
+                <ListItem
+                  button
+                  onClick={() => {
+                    signOut();
+                  }}
+                >
+                  <ListItemText primary="Sign Out" />
+                </ListItem>
+              </Link>
             </List>
           ) : (
             <List>
               <Link to="/login">
-                <ListItemText primary="Sign Up / Sign In" onClick={() => setOpen(false)} />
+                <ListItem button onClick={() => setOpen(false)}>
+                  <ListItemText primary="Sign Up / Sign In" />
+                </ListItem>
               </Link>
             </List>
           )}
