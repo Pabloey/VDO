@@ -16,6 +16,7 @@ export default function SignIn(props) {
   const checkUser = async (res) => {
     if (account.username === res.username && account.password === res.password) {
       localStorage.setItem("user", JSON.stringify(res));
+      console.log();
       props.authButton();
       props.history.push("/");
       // alert("Login successful"); //Add toast here Snackbar/Alert MUI
@@ -24,7 +25,6 @@ export default function SignIn(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(account)
     const res = await FindUser(account.username);
     await checkUser(res);
   };
@@ -35,7 +35,6 @@ export default function SignIn(props) {
         <TextField id="outlined-basic" label="Username" variant="outlined" name="username" value={account.username} onChange={handleChange} />
         <br />
         <br />
-
         <TextField
           id="outlined-basic"
           type="password"

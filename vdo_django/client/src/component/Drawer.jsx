@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import List from "@mui/material/List";
@@ -21,7 +22,15 @@ export default function Drawer() {
           </Box>
           <List>
             <ListItem button onClick={() => {}}>
-              <ListItemText primary="Home" />
+              {localStorage.getItem("user") ? (
+                <Link to="/">
+                  <ListItemText primary="Home" />
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <ListItemText primary="Sign Up / Sign In" />
+                </Link>
+              )}
             </ListItem>
             <ListItem button onClick={() => {}}>
               <ListItemText primary="User" />
