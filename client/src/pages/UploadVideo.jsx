@@ -66,7 +66,7 @@ export default function UploadVideo() {
         <br />
         <br />
         <Button type="submit" variant="contained">
-          Sign In
+          Upload
         </Button>
       </form>
     </div>

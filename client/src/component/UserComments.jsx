@@ -15,7 +15,7 @@ export default function UserComments(props) {
   };
 
   return (
-    <>
+    <div className="edit-comments">
       {editOn ? (
         <div>
           <EditComment comments={props.comments} setEditOn={setEditOn} setComments={props.setComments}/>
@@ -31,6 +31,6 @@ export default function UserComments(props) {
           <EditIcon style={{ color: "green" }} onClick={() => setEditOn(true)} />
         </div>
       )}
-    </>
+    </div>
   );
 }

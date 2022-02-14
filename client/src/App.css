@@ -1,4 +1,55 @@
-.video-box {
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+.video-list {
   display: grid;
-  grid-template-rows: 1fr 1fr 2fr;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 1%;
+}
+
+.video-box {
+  margin: 5px;
+  display: grid;
+  justify-content: center;
+  box-shadow: 5px 5px 15px rgba(5, 5, 5, 0.05);
+  border-radius: 5px;
+  transition: all 0.25s ease-in-out;
+}
+.video-box:hover {
+  box-shadow: 5px 5px 25px rgba(5, 5, 5, 0.25);
+  transform: scale(105%);
+}
+
+.video-page {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.user-page {
+  display: grid;
+  align-items: end;
+  grid-template-rows: 1fr;
+}
+
+.user-cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.edit-comments{
+  border-radius: 5px;
+  box-shadow: 2px 2px 15px rgba(5, 5, 5, 0.05);
+  margin: 5px 10px
+}
+
+@media only screen and (max-width: 720px) {
+  .user-cont {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }

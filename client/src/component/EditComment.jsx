@@ -37,7 +37,6 @@ export default function EditComment(props) {
           name="description"
           value={commentField.description}
           onChange={handleChange}
-          style={{ width: "500px" }}
         />
         <br />
         <br />

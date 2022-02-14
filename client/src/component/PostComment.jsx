@@ -15,6 +15,7 @@ export default function PostComment(props) {
     await SubmitComment(comment);
     const res = await SpecVideo(props.match.params.id);
     props.setVideoComments(res.comments.reverse());
+    setComment({...comment, description: ""})
   };
 
   const handleChange = (e) => {

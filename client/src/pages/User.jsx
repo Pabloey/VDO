@@ -20,24 +20,26 @@ export default function User(props) {
   }, []);
 
   return (
-    <div>
+    <div className="user-page">
       <h1>Welcome to your base, {user.username}</h1>
       <h3>Update your posts here</h3>
-      <div>
-        <h2>Your Comments</h2>
+      <div className="user-cont">
         <div>
-          {comments.map((e, i) => (
-            <UserComments key={i} {...props} comments={e} setComments={setComments} getUserDetails={getUserDetails}/>
-          ))}
+          <h2>Your Comments</h2>
+          <>
+            {comments.map((e, i) => (
+              <UserComments key={i} {...props} comments={e} setComments={setComments} getUserDetails={getUserDetails} />
+            ))}
+          </>
         </div>
-      </div>
 
-      <div>
-        <h2>Your videos</h2>
         <div>
-          {videos.map((e, i) => (
-            <UserVideos key={i} {...props} video={e} setVideos={setVideos} getUserDetails={getUserDetails} />
-          ))}
+          <h2>Your videos</h2>
+          <div>
+            {videos.map((e, i) => (
+              <UserVideos key={i} {...props} video={e} setVideos={setVideos} getUserDetails={getUserDetails} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

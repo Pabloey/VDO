@@ -15,11 +15,9 @@ export default function Home(props) {
   }, []);
 
   return (
-    <div>
+    <div className="video-list">
       {shuffledVideos.map((e, i) => (
-        <Link style={{ textDecoration: "none", color: "black" }} to={`/videos/${e.id}`} key={i}>
           <VideoList key={i} e={e} videos={videos} />
-        </Link>
       ))}
     </div>
   );
