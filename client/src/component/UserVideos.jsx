@@ -18,8 +18,8 @@ export default function UserVideos(props) {
     <>
       {editOn ? (
         <div>
-          <EditVideo video={props.video} />
-          <CancelIcon onClick={() => setEditOn(false)} />
+          <EditVideo video={props.video} setEditOn={setEditOn} setVideos={props.setVideos}/>
+          <CancelIcon onClick={() => setEditOn(false)} setEditOn={setEditOn} />
         </div>
       ) : (
         <div>

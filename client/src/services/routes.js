@@ -50,7 +50,7 @@ export const DeleteComment = async (comment) => {
   return res
 }
 
-export const EditComment = async (comment) => {
+export const EditCommentDetail = async (comment) => {
   const res = await Client.put(`/comments/${comment.id}`, comment)
   return res
 }

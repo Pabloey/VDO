@@ -1,10 +1,10 @@
 import PublishIcon from "@mui/icons-material/Publish";
 import TextField from "@mui/material/TextField";
-import { EditVideoDetails } from "../services/routes";
+import { EditVideoDetails, GetUser } from "../services/routes";
 import { useState } from "react";
 
 export default function EditVideo(props) {
-  const [commentField, setCommentField] = useState({
+  const [videoDetail, setVideoDetail] = useState({
     id: props.video.id,
     title: props.video.title,
     description: props.video.description,
@@ -16,12 +16,15 @@ export default function EditVideo(props) {
   });
 
   const handleChange = (e) => {
-    setCommentField({ ...commentField, [e.target.name]: e.target.value });
+    setVideoDetail({ ...videoDetail, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    EditVideoDetails(commentField);
+    await EditVideoDetails(videoDetail);
+    props.setEditOn(false)
+    const res = await GetUser(JSON.parse(localStorage.getItem("user")).id);
+    props.setVideos(res.video_list);
   };
 
   return (
@@ -34,7 +37,7 @@ export default function EditVideo(props) {
           label="Title"
           variant="outlined"
           name="title"
-          value={commentField.title}
+          value={videoDetail.title}
           onChange={handleChange}
           style={{ width: "500px" }}
         />
@@ -42,12 +45,12 @@ export default function EditVideo(props) {
         <br />
         <TextField
           id="outlined-basic"
-          label={props.video.description}
+          label="Description"
           multiline
           maxRows={10}
           variant="outlined"
           name="description"
-          value={commentField.description}
+          value={videoDetail.description}
           onChange={handleChange}
           style={{ width: "500px" }}
         />
@@ -55,10 +58,10 @@ export default function EditVideo(props) {
         <br />
         <TextField
           id="outlined-basic"
-          label={props.video.video_url}
+          label="Video URL"
           variant="outlined"
           name="video_url"
-          value={commentField.video_url}
+          value={videoDetail.video_url}
           onChange={handleChange}
           style={{ width: "500px" }}
         />

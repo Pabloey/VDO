@@ -8,13 +8,14 @@ export default function User(props) {
   const [comments, setComments] = useState([]);
   const [videos, setVideos] = useState([]);
 
+  const getUserDetails = async () => {
+    const res = await GetUser(JSON.parse(localStorage.getItem("user")).id);
+    setUser(res);
+    setComments(res.comment_list);
+    setVideos(res.video_list);
+  };
+
   useEffect(() => {
-    const getUserDetails = async () => {
-      const res = await GetUser(JSON.parse(localStorage.getItem("user")).id);
-      setUser(res);
-      setComments(res.comment_list);
-      setVideos(res.video_list);
-    };
     getUserDetails();
   }, []);
 
@@ -26,7 +27,7 @@ export default function User(props) {
         <h2>Your Comments</h2>
         <div>
           {comments.map((e, i) => (
-            <UserComments key={i} {...props} comments={e} setComments={setComments} />
+            <UserComments key={i} {...props} comments={e} setComments={setComments} getUserDetails={getUserDetails}/>
           ))}
         </div>
       </div>
@@ -35,7 +36,7 @@ export default function User(props) {
         <h2>Your videos</h2>
         <div>
           {videos.map((e, i) => (
-            <UserVideos key={i} {...props} video={e} setVideos={setVideos} />
+            <UserVideos key={i} {...props} video={e} setVideos={setVideos} getUserDetails={getUserDetails} />
           ))}
         </div>
       </div>

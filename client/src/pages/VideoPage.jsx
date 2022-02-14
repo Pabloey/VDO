@@ -21,7 +21,7 @@ export default function VideoPage(props) {
 
   return (
     <div>
-      <ReactPlayer url={`${videos.video_url}`} controls />
+      <ReactPlayer url={`${videos.video_url}`} controls playing="true" />
       <h3>{videos.user}</h3>
       <h3>{videos.title}</h3>
       <h5>{videos.description}</h5>
