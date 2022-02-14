@@ -17,11 +17,17 @@ export default function User(props) {
   console.log(user);
   return (
     <div>
+      <h1>Welcome to your base, {user.username}</h1>
+      <h3>Update your posts here</h3>
       <div>
-        <UserComments {...props} comment_list={user.comment_list} />
+        {user.comment_list.map((e, i) => (
+          <UserComments {...props} comment_list={e.comment_list} />
+        ))}
       </div>
       <div>
-        <UserVideos {...props} video_list={user.video_list} />
+        {user.video_list.map((e, i) => (
+          <UserVideos {...props} video_list={e.video_list} />
+        ))}
       </div>
     </div>
   );

@@ -1,6 +1,4 @@
-
-
-export default function UserVideos() {
+export default function UserVideos(props) {
   return (
     <div>UserVideos</div>
   )
