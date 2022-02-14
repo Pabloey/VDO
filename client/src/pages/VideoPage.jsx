@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import PostComment from "../component/PostComment";
 import { useEffect, useState } from "react";
 import { SpecVideo } from "../services/routes";
+import { Divider } from "@mui/material";
 
 export default function VideoPage(props) {
   const [videos, setVideos] = useState({});
@@ -11,7 +12,6 @@ export default function VideoPage(props) {
 
   const set_user = () => {
     if (!JSON.parse(localStorage.getItem("user"))) {
-      console.log("no token");
     } else if (JSON.parse(localStorage.getItem("user"))) {
       setUser(JSON.parse(localStorage.getItem("user")));
     }
@@ -29,20 +29,34 @@ export default function VideoPage(props) {
 
   return (
     <div className="video-page">
-      <ReactPlayer url={`${videos.video_url}`} controls playing={true} width="auto" height="75vh" className="videopage-player"/>
+      <ReactPlayer url={`${videos.video_url}`} controls playing={true} width="auto" height="75vh" className="videopage-player" />
       <div>
         <h1>{videos.title}</h1>
         <h2>{videos.user}</h2>
-        <h5>{videos.description}</h5>
+        <h3>{videos.description}</h3>
+        <br />
+        <br />
         <div>
-          <h3>Comments</h3>
-          {JSON.parse(localStorage.getItem("user")) ? <PostComment {...props} user={user} setVideoComments={setVideoComments} /> : "Log in to leave a comment"}
-          {videoComments.map((e, i) => (
-            <div key={i} className="video-comments">
-              <h5>{e.user}</h5>
-              <p>{e.description}</p>
-            </div>
-          ))}
+          <Divider>
+            <h2>Comments</h2>
+          </Divider>
+          {JSON.parse(localStorage.getItem("user")) ? (
+            <PostComment {...props} user={user} setVideoComments={setVideoComments} />
+          ) : (
+            "Log in to leave a comment"
+          )}
+          <br />
+          <br />
+          <br />
+
+          <div className="video-comments-container">
+            {videoComments.map((e, i) => (
+              <div key={i} className="video-comments">
+                <h4>{e.user}</h4>
+                <p>{e.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
