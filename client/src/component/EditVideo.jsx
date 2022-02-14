@@ -20,7 +20,7 @@ export default function EditVideo(props) {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     EditVideoDetails(commentField);
   };
 
@@ -64,7 +64,7 @@ export default function EditVideo(props) {
         />
         <br />
         <br />
-        <PublishIcon onClick={handleSubmit} type="submit"/>
+        <PublishIcon onClick={handleSubmit} type="submit" />
       </form>
     </div>
   );

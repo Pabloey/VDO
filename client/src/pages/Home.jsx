@@ -5,6 +5,7 @@ import VideoList from "../component/VideoList";
 
 export default function Home(props) {
   const [videos, setVideos] = useState([]);
+  const shuffledVideos = videos.sort((a, b) => 0.5 - Math.random());
   useEffect(() => {
     const getVideos = async () => {
       const res = await GetVideos();
@@ -15,9 +16,9 @@ export default function Home(props) {
 
   return (
     <div>
-      {videos.map((e, i) => (
+      {shuffledVideos.map((e, i) => (
         <Link style={{ textDecoration: "none", color: "black" }} to={`/videos/${e.id}`} key={i}>
-          <VideoList key={i} e={e} />
+          <VideoList key={i} e={e} videos={videos} />
         </Link>
       ))}
     </div>
