@@ -34,3 +34,23 @@ export const SubmitVideo = async (video) => {
   const res = await Client.post(`/uploaded/`, video)
   return res.data
 }
+
+export const DeleteVideo = async (video) => {
+  const res = await Client.delete(`/uploaded/${video}`)
+  return res.data
+}
+
+export const EditVideo = async (video) => {
+  const res = await Client.put(`/uploaded/${video.id}`, video)
+  return res
+}
+
+export const DeleteComment = async (comment) => {
+  const res = await Client.delete(`/comments/${comment}`)
+  return res
+}
+
+export const EditComment = async (comment) => {
+  const res = await Client.put(`/comments/${comment.id}`, comment)
+  return res
+}

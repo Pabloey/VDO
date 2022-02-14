@@ -5,11 +5,15 @@ import { useEffect, useState } from "react";
 
 export default function User(props) {
   const [user, setUser] = useState({});
+  const [comments, setComments] = useState([]);
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     const getUserDetails = async () => {
       const res = await GetUser(JSON.parse(localStorage.getItem("user")).id);
       setUser(res);
+      setComments(res.comment_list);
+      setVideos(res.video_list);
     };
     getUserDetails();
   }, []);
@@ -20,13 +24,13 @@ export default function User(props) {
       <h1>Welcome to your base, {user.username}</h1>
       <h3>Update your posts here</h3>
       <div>
-        {user.comment_list.map((e, i) => (
-          <UserComments {...props} comment_list={e.comment_list} />
+        {comments.map((e, i) => (
+          <UserComments key={i} {...props} comments={e} />
         ))}
       </div>
       <div>
-        {user.video_list.map((e, i) => (
-          <UserVideos {...props} video_list={e.video_list} />
+        {videos.map((e, i) => (
+          <UserVideos key={i} {...props} video={e} setVideos={setVideos} />
         ))}
       </div>
     </div>
