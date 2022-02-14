@@ -31,8 +31,10 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    'http://vdo-site.surge.sh',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -91,7 +93,7 @@ WSGI_APPLICATION = 'vdo_django.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600)
+  'default': dj_database_url.config(conn_max_age=600)
 }
 
 
@@ -128,7 +130,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT=os.path.join(BASE_DIR, "static/")
+
 STATIC_URL = 'static/'
 
 # Default primary key field type
