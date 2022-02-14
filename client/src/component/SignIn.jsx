@@ -2,6 +2,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { FindUser } from "../services/routes";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignIn(props) {
   const [account, setAccount] = useState({
@@ -19,8 +21,19 @@ export default function SignIn(props) {
       console.log();
       props.authButton();
       props.history.push("/");
+      toast.success("Successfully logged in!", {
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: 0,
+      });
       // alert("Login successful"); //Add toast here Snackbar/Alert MUI
-    } else alert("Wrong password or username"); //Add toast here Snackbar/Alert MUI
+    } else {
+      toast.error("Wrong password or username?", {
+        draggable: true,
+        progress: 0,
+      });
+    }; //Add toast here Snackbar/Alert MUI
   };
 
   const handleSubmit = async (e) => {
@@ -32,6 +45,7 @@ export default function SignIn(props) {
   return (
     <div>
       <h1>Sign In</h1>
+      <br />
       <form onSubmit={handleSubmit}>
         <TextField id="outlined-basic" label="Username" variant="outlined" name="username" value={account.username} onChange={handleChange} />
         <br />

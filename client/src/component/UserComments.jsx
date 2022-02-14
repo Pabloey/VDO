@@ -18,7 +18,7 @@ export default function UserComments(props) {
     <div className="edit-comments">
       {editOn ? (
         <div>
-          <EditComment comments={props.comments} setEditOn={setEditOn} setComments={props.setComments}/>
+          <EditComment comments={props.comments} setEditOn={setEditOn} setComments={props.setComments} />
           <CancelIcon onClick={() => setEditOn(false)} />
         </div>
       ) : (

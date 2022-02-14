@@ -1,6 +1,7 @@
 import React from "react";
 import SignIn from "../component/SignIn";
 import SignUp from "../component/SignUp";
+import { Divider } from "@mui/material";
 
 export default function LogIn(props) {
   return (
@@ -17,6 +18,9 @@ export default function LogIn(props) {
       <div className="login-half">
         <SignIn {...props} />
         <br />
+        <Divider orientation="horizontal" >
+          Or
+        </Divider>
         <br />
         <SignUp />
       </div>

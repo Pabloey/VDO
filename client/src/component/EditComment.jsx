@@ -29,6 +29,7 @@ export default function EditComment(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <TextField
+          style={{ width: "75%" }}
           id="outlined-basic"
           multiline
           maxRows={2}

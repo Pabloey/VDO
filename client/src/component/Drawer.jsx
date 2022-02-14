@@ -12,6 +12,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import UploadIcon from "@mui/icons-material/Upload";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
+import { toast } from "react-toastify";
+
 
 export default function Drawer() {
   const [open, setOpen] = useState(false);
@@ -19,6 +21,7 @@ export default function Drawer() {
   const signOut = () => {
     localStorage.clear();
     setOpen(false);
+    toast.success("Logged out successfully")
   };
 
   return (

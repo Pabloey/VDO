@@ -22,7 +22,6 @@ export default function User(props) {
   return (
     <div className="user-page">
       <h1>Welcome to your base, {user.username}</h1>
-      <h3>Update your posts here</h3>
       <div className="user-cont">
         <div>
           <h2>Your Comments</h2>

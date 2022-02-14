@@ -22,7 +22,7 @@ export default function EditVideo(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await EditVideoDetails(videoDetail);
-    props.setEditOn(false)
+    props.setEditOn(false);
     const res = await GetUser(JSON.parse(localStorage.getItem("user")).id);
     props.setVideos(res.video_list);
   };
@@ -39,7 +39,7 @@ export default function EditVideo(props) {
           name="title"
           value={videoDetail.title}
           onChange={handleChange}
-          style={{ width: "500px" }}
+          style={{ width: "75%" }}
         />
         <br />
         <br />
@@ -52,7 +52,7 @@ export default function EditVideo(props) {
           name="description"
           value={videoDetail.description}
           onChange={handleChange}
-          style={{ width: "500px" }}
+          style={{ width: "75%" }}
         />
         <br />
         <br />
@@ -63,7 +63,7 @@ export default function EditVideo(props) {
           name="video_url"
           value={videoDetail.video_url}
           onChange={handleChange}
-          style={{ width: "500px" }}
+          style={{ width: "75%" }}
         />
         <br />
         <br />
