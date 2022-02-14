@@ -4,8 +4,9 @@ import Button from "@mui/material/Button";
 import { SpecVideo, SubmitComment } from "../services/routes";
 
 export default function PostComment(props) {
+  const userId = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).id : null
   const [comment, setComment] = useState({
-    user_id: JSON.parse(localStorage.getItem("user")).id,
+    user_id: userId,
     video_id: props.match.params.id,
     description: "",
   });
