@@ -23,14 +23,21 @@ export default function User(props) {
       <h1>Welcome to your base, {user.username}</h1>
       <h3>Update your posts here</h3>
       <div>
-        {comments.map((e, i) => (
-          <UserComments key={i} {...props} comments={e} />
-        ))}
+        <h2>Your Comments</h2>
+        <div>
+          {comments.map((e, i) => (
+            <UserComments key={i} {...props} comments={e} />
+          ))}
+        </div>
       </div>
+
       <div>
-        {videos.map((e, i) => (
-          <UserVideos key={i} {...props} video={e} setVideos={setVideos} />
-        ))}
+        <h2>Your videos</h2>
+        <div>
+          {videos.map((e, i) => (
+            <UserVideos key={i} {...props} video={e} setVideos={setVideos} />
+          ))}
+        </div>
       </div>
     </div>
   );

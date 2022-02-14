@@ -1,6 +1,6 @@
 import { DeleteVideo } from "../services/routes";
 import { GetUser } from "../services/routes";
-import EditComment from "./EditComment";
+import EditVideo from "./EditVideo";
 import { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -19,7 +19,7 @@ export default function UserVideos(props) {
     <>
       {editOn ? (
         <div>
-          <EditComment />
+          <EditVideo video={props.video} />
           <CancelIcon onClick={() => setEditOn(false)} />
         </div>
       ) : (

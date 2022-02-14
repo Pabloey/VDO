@@ -40,7 +40,7 @@ export const DeleteVideo = async (video) => {
   return res.data
 }
 
-export const EditVideo = async (video) => {
+export const EditVideoDetails = async (video) => {
   const res = await Client.put(`/uploaded/${video.id}`, video)
   return res
 }
