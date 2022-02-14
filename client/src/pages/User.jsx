@@ -18,7 +18,6 @@ export default function User(props) {
     getUserDetails();
   }, []);
 
-  console.log(user);
   return (
     <div>
       <h1>Welcome to your base, {user.username}</h1>
