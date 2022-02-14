@@ -47,9 +47,27 @@
   margin: 5px 10px
 }
 
-@media only screen and (max-width: 720px) {
+.login-cont{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.login-half{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-shadow: -5px 0px 25px rgba(5, 5, 5, 0.15);
+}
+
+
+@media only screen and (max-width: 900px) {
   .user-cont {
     display: grid;
     grid-template-columns: 1fr;
+  }
+  .login-cont{
+    display: grid;
+    grid-template-columns: 1fr
   }
 }

@@ -31,6 +31,7 @@ export default function SignIn(props) {
 
   return (
     <div>
+      <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
         <TextField id="outlined-basic" label="Username" variant="outlined" name="username" value={account.username} onChange={handleChange} />
         <br />

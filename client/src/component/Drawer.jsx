@@ -23,8 +23,8 @@ export default function Drawer() {
 
   return (
     <div style={{ display: "grid", justifyContent: "start", paddingLeft: "1%" }}>
-      <IconButton color="inherit" onClick={() => setOpen(true)}>
-        <MenuIcon style={{ transform: "scale(1.5)", position: "sticky" }}></MenuIcon>
+      <IconButton style={{ position: "fixed", top: "0", zIndex: "2" }} color="inherit" onClick={() => setOpen(true)}>
+        <MenuIcon style={{ transform: "scale(1.5)" }}></MenuIcon>
       </IconButton>
       <SwipeableDrawer anchor="left" open={open} onClose={() => setOpen(false)} onOpen={() => {}}>
         <div style={{ width: "200px" }}>

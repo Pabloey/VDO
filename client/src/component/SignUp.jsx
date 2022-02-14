@@ -25,6 +25,8 @@ export default function SignUp() {
 
   return (
     <div>
+      <h1>Sign Up</h1>
+
       <form onSubmit={handleSubmit}>
         <TextField id="outlined-basic" label="Username" variant="outlined" name="username" value={account.username} onChange={handleChange} />
         <br />

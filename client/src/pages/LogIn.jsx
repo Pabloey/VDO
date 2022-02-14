@@ -4,11 +4,22 @@ import SignUp from "../component/SignUp";
 
 export default function LogIn(props) {
   return (
-    <div>
-      <h1>Sign In</h1>
-      <SignIn {...props} />
-      <h1>Sign Up</h1>
-      <SignUp />
+    <div className="login-cont">
+      <div
+        className="login-other"
+        style={{
+          backgroundImage: "url(https://source.unsplash.com/random)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      ></div>
+      <div className="login-half">
+        <SignIn {...props} />
+        <br />
+        <br />
+        <SignUp />
+      </div>
     </div>
   );
 }
