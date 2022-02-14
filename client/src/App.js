@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import VideoPage from './pages/VideoPage'
 import UploadVideo from './pages/UploadVideo'
 import User from './pages/User'
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 import { Route, Switch } from 'react-router-dom'
 
 function App () {
@@ -21,6 +23,11 @@ function App () {
   return (
     <div className="App">
       <Drawer />
+      <ToastContainer
+      pauseOnFocusLoss={false}
+      autoClose={2500}
+      position="bottom-right"
+      />
       <Switch>
         <Route exact path="/" component={(props) => <Home {...props} />}></Route>
         <Route exact path="/login" component={(props) => <LogIn {...props} authButton={authButton} />}></Route>

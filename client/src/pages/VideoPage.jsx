@@ -9,31 +9,41 @@ export default function VideoPage(props) {
   const [videoComments, setVideoComments] = useState([]);
   const [user, setUser] = useState({});
 
+  const set_user = () => {
+    if (!JSON.parse(localStorage.getItem("user"))) {
+      console.log("no token");
+    } else if (JSON.parse(localStorage.getItem("user"))) {
+      setUser(JSON.parse(localStorage.getItem("user")));
+    }
+  };
+
   useEffect(() => {
     const getVideos = async () => {
       const res = await SpecVideo(props.match.params.id);
       setVideos(res);
       setVideoComments(res.comments.reverse());
-      setUser(JSON.parse(localStorage.getItem("user")));
+      set_user();
     };
     getVideos();
   }, []);
 
   return (
-    <div>
-      <ReactPlayer url={`${videos.video_url}`} controls />
-      <h3>{videos.user}</h3>
-      <h3>{videos.title}</h3>
-      <h5>{videos.description}</h5>
+    <div className="video-page">
+      <ReactPlayer url={`${videos.video_url}`} controls playing={true} width="auto" height="75vh" className="videopage-player"/>
       <div>
-        <h3>Comments</h3>
-        <PostComment {...props} user={user} setVideoComments={setVideoComments} />
-        {videoComments.map((e, i) => (
-          <div key={i}>
-            <h5>{e.user}</h5>
-            <p>{e.description}</p>
-          </div>
-        ))}
+        <h1>{videos.title}</h1>
+        <h2>{videos.user}</h2>
+        <h5>{videos.description}</h5>
+        <div>
+          <h3>Comments</h3>
+          {JSON.parse(localStorage.getItem("user")) ? <PostComment {...props} user={user} setVideoComments={setVideoComments} /> : "Log in to leave a comment"}
+          {videoComments.map((e, i) => (
+            <div key={i} className="video-comments">
+              <h5>{e.user}</h5>
+              <p>{e.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

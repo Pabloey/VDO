@@ -2,6 +2,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { SubmitVideo } from "../services/routes";
+import { toast } from "react-toastify";
+
 
 export default function UploadVideo() {
   const [videoInput, setVideoInput] = useState({
@@ -18,6 +20,7 @@ export default function UploadVideo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await SubmitVideo(videoInput);
+    toast.success("Video uploaded! Go back home or upload more...")
     setVideoInput({
       title: "",
       description: "",
@@ -26,9 +29,8 @@ export default function UploadVideo() {
   };
 
   return (
-    <div>
-      <h1>Submit a new video!</h1>
-      <h4>URLs can be Twitch, Youtube or Vimeo</h4>
+    <div className="upload-container">
+      <h1 className="upload-header">Submit a new video!</h1>
       <form onSubmit={handleSubmit}>
         <TextField
           id="outlined-basic"
@@ -63,10 +65,11 @@ export default function UploadVideo() {
           onChange={handleChange}
           style={{ width: "500px" }}
         />
+      <h4>URLs can be Twitch, Youtube or Vimeo</h4>
         <br />
         <br />
         <Button type="submit" variant="contained">
-          Sign In
+          Upload
         </Button>
       </form>
     </div>

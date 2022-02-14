@@ -1,14 +1,29 @@
 import React from "react";
 import SignIn from "../component/SignIn";
 import SignUp from "../component/SignUp";
+import { Divider } from "@mui/material";
 
 export default function LogIn(props) {
   return (
-    <div>
-      <h1>Sign In</h1>
-      <SignIn {...props} />
-      <h1>Sign Up</h1>
-      <SignUp />
+    <div className="login-cont">
+      <div
+        className="login-other"
+        style={{
+          backgroundImage: "url(https://source.unsplash.com/random)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      ></div>
+      <div className="login-half">
+        <SignIn {...props} />
+        <br />
+        <Divider orientation="horizontal" >
+          Or
+        </Divider>
+        <br />
+        <SignUp />
+      </div>
     </div>
   );
 }
