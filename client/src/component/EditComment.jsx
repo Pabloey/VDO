@@ -2,6 +2,7 @@ import PublishIcon from "@mui/icons-material/Publish";
 import TextField from "@mui/material/TextField";
 import { EditCommentDetail, GetUser } from "../services/routes";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function EditComment(props) {
   const [commentField, setCommentField] = useState({
@@ -19,6 +20,7 @@ export default function EditComment(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    toast.success('Comment updated')
     await EditCommentDetail(commentField);
     await props.setEditOn(false);
     const res = await GetUser(JSON.parse(localStorage.getItem("user")).id);

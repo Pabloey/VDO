@@ -8,6 +8,7 @@ import VideoPage from './pages/VideoPage'
 import UploadVideo from './pages/UploadVideo'
 import User from './pages/User'
 import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 import { Route, Switch } from 'react-router-dom'
 
 function App () {

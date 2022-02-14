@@ -2,6 +2,7 @@ import PublishIcon from "@mui/icons-material/Publish";
 import TextField from "@mui/material/TextField";
 import { EditVideoDetails, GetUser } from "../services/routes";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function EditVideo(props) {
   const [videoDetail, setVideoDetail] = useState({
@@ -21,6 +22,7 @@ export default function EditVideo(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    toast.success("Changes made successfully")
     await EditVideoDetails(videoDetail);
     props.setEditOn(false);
     const res = await GetUser(JSON.parse(localStorage.getItem("user")).id);

@@ -4,6 +4,7 @@ import EditComment from "./EditComment";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import CancelIcon from "@mui/icons-material/Cancel";
+import { toast } from "react-toastify";
 
 export default function UserComments(props) {
   const [editOn, setEditOn] = useState(false);
@@ -12,6 +13,13 @@ export default function UserComments(props) {
     await DeleteComment(props.comments.id);
     const res = await GetUser(JSON.parse(localStorage.getItem("user")).id);
     props.setComments(res.comment_list);
+    toast.error("Comment deleted!");
+  };
+
+  const commentCancel = () => {
+    toast("No changes were made");
+    console.log("hi");
+    setEditOn(false);
   };
 
   return (
@@ -19,7 +27,7 @@ export default function UserComments(props) {
       {editOn ? (
         <div>
           <EditComment comments={props.comments} setEditOn={setEditOn} setComments={props.setComments} />
-          <CancelIcon onClick={() => setEditOn(false)} />
+          <CancelIcon onClick={() => commentCancel()} />
         </div>
       ) : (
         <div>
@@ -27,7 +35,7 @@ export default function UserComments(props) {
           <br />
           Comment: {props.comments.description}
           <br />
-          <DeleteIcon style={{ color: "red" }} onClick={deleteComment} />
+          <DeleteIcon style={{ color: "red" }} onClick={() => deleteComment()} />
           <EditIcon style={{ color: "green" }} onClick={() => setEditOn(true)} />
         </div>
       )}

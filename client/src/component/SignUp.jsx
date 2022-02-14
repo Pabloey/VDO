@@ -2,6 +2,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { CreateUser } from "../services/routes";
+import { toast } from "react-toastify";
+
 
 export default function SignUp() {
   const [account, setAccount] = useState({
@@ -19,8 +21,8 @@ export default function SignUp() {
     await CreateUser({ username: account.username, password: account.password });
     if (account.password === account.confirmPassword) {
       setAccount({ username: "", password: "", confirmPassword: "" });
-      alert("Thanks for signing up, now you can login"); //Add toast here Snackbar/Alert MUI
-    } else alert("Password's don't match, try again"); //Add toast here Snackbar/Alert MUI
+      toast.success('Signup successful! Now trying logging in.');
+    } else toast.error('Make sure passwords match!');
   };
 
   return (

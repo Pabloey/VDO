@@ -36,9 +36,9 @@ export default function VideoPage(props) {
         <h5>{videos.description}</h5>
         <div>
           <h3>Comments</h3>
-          {JSON.parse(localStorage.getItem("user")) ? <PostComment {...props} user={user} setVideoComments={setVideoComments} /> : null}
+          {JSON.parse(localStorage.getItem("user")) ? <PostComment {...props} user={user} setVideoComments={setVideoComments} /> : "Log in to leave a comment"}
           {videoComments.map((e, i) => (
-            <div key={i}>
+            <div key={i} className="video-comments">
               <h5>{e.user}</h5>
               <p>{e.description}</p>
             </div>

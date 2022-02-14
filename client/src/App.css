@@ -7,6 +7,7 @@
   text-align: center;
 }
 .video-list {
+  margin-top: 35px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 1%;
@@ -29,6 +30,7 @@
 .video-page {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  margin: 3% 0 0 1%;
 }
 
 .user-page {
@@ -44,6 +46,17 @@
 }
 
 .edit-comments {
+  display: grid;
+  align-items: center;
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 15px rgba(5, 5, 5, 0.05);
+  margin: 5px 10px;
+}
+
+.edit-videos {
+  display: grid;
+  align-items: center;
   border-radius: 5px;
   box-shadow: 2px 2px 15px rgba(5, 5, 5, 0.05);
   margin: 5px 10px;
@@ -60,6 +73,25 @@
   align-items: center;
   height: 100vh;
   box-shadow: -20px -0px 50px rgba(5, 5, 5, 0.35);
+}
+
+.video-comments {
+  display: grid;
+  align-items: center;
+  box-shadow: 2px 2px 15px rgba(5, 5, 5, 0.05);
+  height: 75px;
+  transition: all 0.5s;
+}
+
+.upload-container {
+  padding: 0;
+  height: 75vh;
+  display: grid;
+  align-items: center;
+}
+
+.upload-header {
+  margin-bottom: -20%;
 }
 
 @media only screen and (max-width: 900px) {
