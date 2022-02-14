@@ -3,7 +3,6 @@ import TextField from "@mui/material/TextField";
 import { SpecVideo, SubmitComment } from "../services/routes";
 import { toast } from "react-toastify";
 
-
 export default function PostComment(props) {
   const userId = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).id : null;
   const [comment, setComment] = useState({
@@ -14,7 +13,7 @@ export default function PostComment(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    toast("Comment posted")
+    toast("Comment posted");
     await SubmitComment(comment);
     const res = await SpecVideo(props.match.params.id);
     props.setVideoComments(res.comments.reverse());
@@ -29,6 +28,7 @@ export default function PostComment(props) {
     <div>
       <form type="submit" onSubmit={handleSubmit}>
         <TextField
+          fullWidth
           id="standard-basic"
           label="Leave a comment"
           variant="standard"

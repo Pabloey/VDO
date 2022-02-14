@@ -30,7 +30,7 @@ export default function VideoPage(props) {
   return (
     <div className="video-page">
       <ReactPlayer url={`${videos.video_url}`} controls playing={true} width="auto" height="75vh" className="videopage-player" />
-      <div>
+      <div className="comment-section">
         <h1>{videos.title}</h1>
         <h2>{videos.user}</h2>
         <h3>{videos.description}</h3>
@@ -39,6 +39,7 @@ export default function VideoPage(props) {
         <div>
           <Divider>
             <h2>Comments</h2>
+            <h3>{videoComments.length}</h3>
           </Divider>
           {JSON.parse(localStorage.getItem("user")) ? (
             <PostComment {...props} user={user} setVideoComments={setVideoComments} />
