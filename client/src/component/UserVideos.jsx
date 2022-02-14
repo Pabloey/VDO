@@ -1,5 +1,4 @@
-import { DeleteVideo } from "../services/routes";
-import { GetUser } from "../services/routes";
+import { DeleteVideo, GetUser } from "../services/routes";
 import EditVideo from "./EditVideo";
 import { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";

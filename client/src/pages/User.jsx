@@ -26,7 +26,7 @@ export default function User(props) {
         <h2>Your Comments</h2>
         <div>
           {comments.map((e, i) => (
-            <UserComments key={i} {...props} comments={e} />
+            <UserComments key={i} {...props} comments={e} setComments={setComments} />
           ))}
         </div>
       </div>

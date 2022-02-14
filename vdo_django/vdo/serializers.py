@@ -15,10 +15,7 @@ class CommentSerializer(serializers.ModelSerializer):
         source="user"
     )
 
-    video = serializers.HyperlinkedRelatedField(
-        view_name="video_detail",
-        read_only=True
-    )
+    video = serializers.StringRelatedField()
 
     video_id = serializers.PrimaryKeyRelatedField(
         queryset=UploadedVideo.objects.all(),
