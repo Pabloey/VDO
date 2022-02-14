@@ -1,9 +1,13 @@
-import EditComment from '../component/EditComment'
+import UserComments from "../component/UserComments";
+import { useEffect } from "react";
 
-export default function User() {
+export default function User(props) {
+  useEffect(() => {});
   return (
     <div>
-      <EditComment/>
+      <div>
+        <UserComments {...props} />
+      </div>
     </div>
-  )
+  );
 }
