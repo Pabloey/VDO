@@ -4,6 +4,7 @@ import EditComment from "./EditComment";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import CancelIcon from "@mui/icons-material/Cancel";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export default function UserComments(props) {
@@ -18,9 +19,10 @@ export default function UserComments(props) {
 
   const commentCancel = () => {
     toast("No changes were made");
-    console.log("hi");
     setEditOn(false);
   };
+
+  console.log(props.comments)
 
   return (
     <div className="edit-comments">
@@ -31,7 +33,10 @@ export default function UserComments(props) {
         </div>
       ) : (
         <div>
-          Video: {props.comments.video}
+          Video:
+          <Link to={`/videos/${props.comments.video_id}`} style={{ textDecoration: "none", color: "black" }}>
+            {props.comments.video}
+          </Link>
           <br />
           Comment: {props.comments.description}
           <br />
