@@ -42,7 +42,7 @@ export default function SignIn(props) {
   };
 
   return (
-    <div>
+    <div className="sign-in-half">
       <h1>Sign In</h1>
       <br />
       <form onSubmit={handleSubmit}>

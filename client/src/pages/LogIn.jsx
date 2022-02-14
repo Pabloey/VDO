@@ -17,11 +17,7 @@ export default function LogIn(props) {
       ></div>
       <div className="login-half">
         <SignIn {...props} />
-        <br />
-        <Divider orientation="horizontal" >
-          Or
-        </Divider>
-        <br />
+        <Divider/>
         <SignUp />
       </div>
     </div>
