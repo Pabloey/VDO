@@ -13,7 +13,7 @@ export default function PostComment(props) {
     e.preventDefault();
     await SubmitComment(comment);
     const res = await SpecVideo(props.match.params.id);
-    props.setVideoComments((res.comments).reverse());
+    props.setVideoComments(res.comments.reverse());
   };
 
   const handleChange = (e) => {

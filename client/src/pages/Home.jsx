@@ -17,7 +17,7 @@ export default function Home(props) {
     <div>
       {videos.map((e, i) => (
         <Link style={{ textDecoration: "none", color: "black" }} to={`/videos/${e.id}`} key={i}>
-          <VideoList  key={i} e={e} />
+          <VideoList key={i} e={e} />
         </Link>
       ))}
     </div>

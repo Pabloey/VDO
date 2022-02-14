@@ -24,3 +24,8 @@ export const SubmitComment = async (comment) => {
   const res = await Client.post(`/comments/`, comment)
   return res.data
 }
+
+export const SubmitVideo = async (video) => {
+  const res = await Client.post(`/uploaded/`, video)
+  return res.data
+}

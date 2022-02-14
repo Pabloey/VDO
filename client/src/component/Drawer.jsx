@@ -28,22 +28,22 @@ export default function Drawer() {
           </Box>
           {localStorage.getItem("user") ? (
             <List>
-              <Link to="/">
+              <Link to="/" style={{ textDecoration: "none", color: "black" }}>
                 <ListItem button onClick={() => {}}>
                   <ListItemText primary="Home" />
                 </ListItem>
               </Link>
-              <Link to="/user">
+              <Link to="/user" style={{ textDecoration: "none", color: "black" }}>
                 <ListItem button onClick={() => setOpen(false)}>
                   <ListItemText primary="User" />
                 </ListItem>
               </Link>
-              <Link to="/upload">
+              <Link to="/upload" style={{ textDecoration: "none", color: "black" }}>
                 <ListItem button onClick={() => setOpen(false)}>
                   <ListItemText primary="Upload" />
                 </ListItem>
               </Link>
-              <Link to="/login">
+              <Link to="/login" style={{ textDecoration: "none", color: "black" }}>
                 <ListItem
                   button
                   onClick={() => {
@@ -56,7 +56,7 @@ export default function Drawer() {
             </List>
           ) : (
             <List>
-              <Link to="/login">
+              <Link to="/login" style={{ textDecoration: "none", color: "black" }}>
                 <ListItem button onClick={() => setOpen(false)}>
                   <ListItemText primary="Sign Up / Sign In" />
                 </ListItem>
