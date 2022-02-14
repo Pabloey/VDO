@@ -8,6 +8,9 @@ export default function User(props) {
       <div>
         <UserComments {...props} />
       </div>
+      <div>
+
+      </div>
     </div>
   );
 }
